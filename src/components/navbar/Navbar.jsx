@@ -1,4 +1,5 @@
 import React from 'react'
+import ReusableButton from '../reusableButton/ReusableButton'
 import style from "./navbar.module.scss"
 
 const Navbar = () => {
@@ -10,7 +11,7 @@ const Navbar = () => {
       <div className={style.navbarRight}>
         <input type="text" />
         <p>TAILORED-FEED</p>
-        <span>LOGOUT</span>
+        <ReusableButton btnText="LOGOUT" btnBgColor="red"/>
       </div>
     </div>
   )
