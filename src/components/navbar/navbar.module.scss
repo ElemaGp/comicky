@@ -25,6 +25,18 @@
         align-items: center;
         gap: 1.5rem;
 
+        .inputWrapper{
+            display: flex;
+            align-items: center;
+            background-color: white;
+
+            > input{
+                border: none;
+                outline: none;
+            }
+
+        }
+
         > p{
             font-weight: 600;
             font-size: 1.1rem;
