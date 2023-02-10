@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+.navbarContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(69, 69, 243);
+    padding: 1rem;
+
+    .navbarLeft{
+         > p{
+            font-family: 'Pacifico', cursive;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    }
+
+    .navbarRight{
+        display: flex;
+        gap: 1.5rem;
+
+        > p{
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+    }
+}
