@@ -15,7 +15,7 @@ const Navbar = () => {
           <input type="text" placeholder='search people'/>
         </div>
         <p>TAILORED-FEED</p>
-        <ReusableButton btnText="LOGOUT" btnBgColor="red"/>
+        <ReusableButton btnText="LOGOUT" btnBgColor="red" btnPadding="5px" btnTextColor="white" />
       </div>
     </div>
   )
