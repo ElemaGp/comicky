@@ -1,12 +1,14 @@
 import React from 'react'
 import Navbar from '../../components/navbar/Navbar'
 import style from "./feed.module.scss"
-import { AiOutlineLike } from 'react-icons/ai';
+import { AiOutlineDelete, AiOutlineEdit, AiOutlineLike } from 'react-icons/ai';
 
 const Feed = () => {
   return (
     <div className={style.feedContainer}>
+
         <Navbar />
+
         <div className={style.eachPost}>
           <div className={style.postTop}>
             <img src="https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=600" className={style.profilePic} alt="profile pic" />
@@ -19,8 +21,15 @@ const Feed = () => {
           <div className={style.comments}>
             <span className={style.commentName}>John Imeh</span>
             <span>lol, this was me and my friends back then</span>
+            
+            <div className={style.deleteAndEditIcons}>
+              <p className={style.icon}><AiOutlineDelete /></p>
+              <p className={style.icon}><AiOutlineEdit /></p>
+            </div>
           </div>
+
         </div>
+        
         <div className={style.eachPost}>
           <div className={style.postTop}>
             <img src="https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=600" className={style.profilePic} alt="profile pic" />
@@ -33,8 +42,17 @@ const Feed = () => {
           <div className={style.comments}>
             <span className={style.commentName}>John Imeh</span>
             <span>lol, this was me and my friends back then</span>
+            
+            <div className={style.deleteAndEditIcons}>
+              <p className={style.icon}><AiOutlineDelete /></p>
+              <p className={style.icon}><AiOutlineEdit /></p>
+            </div>
           </div>
+
         </div>
+
+        
+
     </div>
   )
 }

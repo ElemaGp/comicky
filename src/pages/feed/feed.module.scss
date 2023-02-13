@@ -46,9 +46,25 @@
         }
         .comments{
             margin: 8px 0;
+
             .commentName{
                 font-weight: 600;
                 margin-right: 6px;
+            }
+
+            .deleteAndEditIcons{
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                gap: 14px;
+                margin-top: 5px;
+
+                .icon{
+                    background-color: rgb(209, 209, 194);
+                    padding: 6px;
+                    border-radius: 50%;
+                    cursor: pointer;
+                }
             }
     }
   }
