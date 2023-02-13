@@ -10,6 +10,7 @@
         width: fit-content;
         align-self: center;
         margin-top: 10px;
+        background-color: beige;
 
         .postTop{
             display: flex;
@@ -26,13 +27,45 @@
         }
 
         .postImg{
-            height: 25rem;
+            // height: 25rem;
             width: 25rem;
-            object-fit: cover;
+            // object-fit: contain;
+            border: solid 1px rgb(109, 106, 106);
 
             @include mobile {
-                width: 15rem;
+                width: 99%;
                 }
         }
+        .caption{
+            margin: 6px 0;
+        }
+
+        .thumbIcon{
+            font-size: 2rem;
+            cursor: pointer;
+        }
+        .comments{
+            margin: 8px 0;
+
+            .commentName{
+                font-weight: 600;
+                margin-right: 6px;
+            }
+
+            .deleteAndEditIcons{
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                gap: 14px;
+                margin-top: 5px;
+
+                .icon{
+                    background-color: rgb(209, 209, 194);
+                    padding: 6px;
+                    border-radius: 50%;
+                    cursor: pointer;
+                }
+            }
+    }
   }
 }

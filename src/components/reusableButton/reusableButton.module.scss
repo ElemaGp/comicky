@@ -6,4 +6,8 @@
     cursor: pointer;
     min-height: 2rem;
     font-weight: 500;
+
+    @media(max-width: 360px){
+        display: none;
+    }
 }
