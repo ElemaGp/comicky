@@ -3,7 +3,7 @@ import ReusableButton from '../reusableButton/ReusableButton'
 import style from "./navbar.module.scss"
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 
-const Navbar = () => {
+const Navbar = ({feedType}) => {
   return (
     <div className={style.navbarContainer}>
       <div className={style.navbarLeft}>
@@ -14,7 +14,7 @@ const Navbar = () => {
           <SearchOutlinedIcon />
           <input type="text" placeholder='search people'/>
         </div>
-        <p>TAILORED-FEED</p>
+        <p>{feedType}</p>
         <ReusableButton btnText="LOGOUT" btnBgColor="red" btnPadding="5px" btnTextColor="white" />
       </div>
     </div>
