@@ -1,13 +1,13 @@
 import React from 'react'
+import style from './tailoredFeed.module.scss'
 import Navbar from '../../components/navbar/Navbar'
-import style from "./feed.module.scss"
 import { AiOutlineDelete, AiOutlineEdit, AiOutlineLike } from 'react-icons/ai';
 
-const Feed = () => {
+const TailoredFeed = () => {
   return (
     <div className={style.feedContainer}>
 
-        <Navbar feedType="TAILORED FEED"/>
+        <Navbar feedType="FEED"/>
 
         <div className={style.eachPost}>
           <div className={style.postTop}>
@@ -57,4 +57,4 @@ const Feed = () => {
   )
 }
 
-export default Feed
+export default TailoredFeed

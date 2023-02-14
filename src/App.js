@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Signup from './pages/signup/Signup';
 import Login from './pages/login/Login';
 import Feed from './pages/feed/Feed';
+import Profile from './pages/profile/Profile';
+import TailoredFeed from './pages/tailoredFeed/TailoredFeed';
 // import { useSelector } from 'react-redux'
 
 function App() {
@@ -17,6 +19,8 @@ function App() {
             <Route index element={<Feed />} />
             <Route path="login" element={<Login />} />
             <Route path="signup" element={<Signup />} />
+            <Route path="profile" element={<Profile />} />
+            <Route path="tailoredfeed" element={<TailoredFeed />} />
           </Route>
         </Routes>
       </BrowserRouter>
