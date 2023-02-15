@@ -1,15 +1,20 @@
-import React from 'react'
+import { Modal, Stack, Typography, Button } from '@mui/material';
+import { Box } from '@mui/system';
+import React, { useState } from 'react'
 import Navbar from '../../components/navbar/Navbar'
 import style from './profile.module.scss'
 
 const Profile = () => {
+
+  const [open, setOpen] = useState(false);
+
   return (
     <div className={style.profileContainer}>
       <Navbar />
       <div className={style.profileHead}>
         <div className={style.profileHeadLeft}>
             <img src="https://images.unsplash.com/photo-1566492031773-4f4e44671857?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="profile pic" />
-            <p>Change profile picture</p>
+            <p onClick={()=>setOpen(true)} style={{cursor: "pointer"}}>Change profile picture</p>
         </div>
         <div className={style.profileHeadRight}>
             <h3>john@gmail.com</h3>
@@ -30,6 +35,23 @@ const Profile = () => {
         <img src="https://static.wikia.nocookie.net/c61c2342-fe0a-4ffb-8950-cb3e536fbb75/scale-to-width/755" alt="post pic" />
       </div>
 
+      {/*MODAL TO CHANGE PROFILE PICTURE*/}
+      {/* the modal's "open" prop is true when my "open" useState is true. ALso, when i click outside the modal, the onClose prop is called, and that is where i set my "open" useState to false */}
+        <Modal open={open} onClose={()=>setOpen(false)}> 
+          <Box position="absolute" top="50%" padding={4} sx={{backgroundColor:"white", left:{
+            xs: 35, //0vw and above
+            sm: 200, //600vw and above
+            md: 300, //900vw and above
+            lg: 400, //1200vw and above
+            xl: 500, //1536vw and above
+          }}}>
+          <Stack gap={2}>
+            <Typography fontWeight={500}>Select a new profile pic</Typography>
+              <input type="file" />
+            <Button variant="contained" color="primary">UPLOAD</Button>
+          </Stack>
+          </Box>
+        </Modal>
     </div>
   )
 }
