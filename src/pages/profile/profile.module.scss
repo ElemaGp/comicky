@@ -9,6 +9,11 @@
         padding: 1.5rem 0;
         border-bottom: solid 1px gray;
 
+        @media(max-width: 289px){
+            gap: 1rem
+             
+        }
+
         .profileHeadLeft{
             display: flex;
             flex-direction: column;
@@ -39,6 +44,16 @@
 
             > h3{
                 letter-spacing: 0.1em;
+
+                @media(max-width: 310px){
+                    font-size: medium;
+                     
+                }
+
+                @media(max-width: 289px){
+                    font-size: small;
+                     
+                }
             }
 
             .followsAndPosts{
@@ -59,8 +74,6 @@
         width: fit-content;
         margin-left: auto;
         margin-right: auto;
-
-        
         
         @media(max-width: 690px){
             grid-template-columns: repeat(3, 1fr);
@@ -70,6 +83,10 @@
         @media(max-width: 510px){
             grid-template-columns: repeat(2, 1fr);
              
+        }
+
+        @media(max-width: 374px){
+            grid-template-columns: repeat(1, 1fr);
         }
 
 
