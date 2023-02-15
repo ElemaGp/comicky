@@ -5,6 +5,8 @@ import Login from './pages/login/Login';
 import Feed from './pages/feed/Feed';
 import Profile from './pages/profile/Profile';
 import TailoredFeed from './pages/tailoredFeed/TailoredFeed';
+import Create from './pages/create/Create';
+
 // import { useSelector } from 'react-redux'
 
 function App() {
@@ -21,6 +23,7 @@ function App() {
             <Route path="signup" element={<Signup />} />
             <Route path="profile" element={<Profile />} />
             <Route path="tailoredfeed" element={<TailoredFeed />} />
+            <Route path="create" element={<Create />} />
           </Route>
         </Routes>
       </BrowserRouter>
