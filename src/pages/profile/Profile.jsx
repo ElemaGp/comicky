@@ -36,14 +36,14 @@ const Profile = () => {
       </div>
 
       {/*MODAL TO CHANGE PROFILE PICTURE*/}
-      {/* the modal's "open" prop is true when my "open" useState is true. ALso, when i click outside the modal, the onClose prop is called, and that is where i set my "open" useState to false */}
+      {/* the Modal's "open" prop is true when my "open" useState is true. Also, when i click outside the modal, the onClose prop is called, and that is where i set my "open" useState to false */}
         <Modal open={open} onClose={()=>setOpen(false)}> 
           <Box position="absolute" top="50%" padding={4} sx={{backgroundColor:"white", left:{
-            xs: 35, //0vw and above
-            sm: 200, //600vw and above
-            md: 300, //900vw and above
-            lg: 400, //1200vw and above
-            xl: 500, //1536vw and above
+            xs: 35, //for 0vw and above
+            sm: 200, //for 600vw and above
+            md: 300, //for 900vw and above
+            lg: 400, //for 1200vw and above
+            xl: 500, //for 1536vw and above
           }}}>
           <Stack gap={2}>
             <Typography fontWeight={500}>Select a new profile pic</Typography>
