@@ -6,24 +6,25 @@ import Feed from './pages/feed/Feed';
 import Profile from './pages/profile/Profile';
 import TailoredFeed from './pages/tailoredFeed/TailoredFeed';
 import Create from './pages/create/Create';
+import { useContext } from 'react';
+import { AuthContext } from './authContext/AuthContext';
 
-// import { useSelector } from 'react-redux'
 
 function App() {
 
-  // const websiteuser = useSelector(state => state.user.websiteuser) // "const websiteuser" is declared to be equal to the "websiteuser" property of the object which i named "user" at some point in userSlice.jsx. The properties of the "user" were written in the "initial state" part of the userSlice.jsx where i stated their initial state values.
+  const {user} = useContext(AuthContext);
 
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
           <Route path="/">
-            <Route index element={<Feed />} />
-            <Route path="login" element={<Login />} />
-            <Route path="signup" element={<Signup />} />
-            <Route path="profile" element={<Profile />} />
-            <Route path="tailoredfeed" element={<TailoredFeed />} />
-            <Route path="create" element={<Create />} />
+            <Route index element={user ? <Feed /> : <Login />} />
+            <Route path="login" element={user ? <Feed /> : <Login />} />
+            <Route path="signup" element={user ? <Feed /> : <Signup />} />
+            <Route path="profile" element={user ? <Profile /> : <Login />} />
+            <Route path="tailoredfeed" element={user ? <TailoredFeed /> : <Login />} />
+            <Route path="create" element={user ? <Create /> : <Login />} />
           </Route>
         </Routes>
       </BrowserRouter>
