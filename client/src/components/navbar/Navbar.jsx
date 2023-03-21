@@ -1,13 +1,20 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import ReusableButton from '../reusableButton/ReusableButton'
 import style from "./navbar.module.scss"
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import { Drawer, TextField } from '@mui/material';
 import { Stack } from '@mui/system';
+import { AuthContext } from '../../authContext/AuthContext';
+import { logout } from '../../authContext/AuthActions';
 
 const Navbar = ({feedType}) => {
 
+  const {dispatch} = useContext(AuthContext);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  const handleLogout=()=>{
+    dispatch(logout());
+  }
   
   return (
     <div className={style.navbarContainer}>
@@ -20,7 +27,14 @@ const Navbar = ({feedType}) => {
           {/* <input type="text" placeholder='search people' onClick={()=>setOpen(true)} onChange={()=>setOpen(true)}/> */}
         </div>
         <p>{feedType}</p>
-        <ReusableButton btnText="LOGOUT" btnBgColor="red" btnPadding="5px" btnTextColor="white" />
+        {/* <ReusableButton 
+        btnText="LOGOUT" 
+        btnBgColor="red" 
+        btnPadding="5px" 
+        btnTextColor="white" 
+        onClick={handleLogout}
+        /> */}
+        <button onClick={handleLogout}>LOGOUT</button>
       </div>
 
       {/*TEMPORARY DRAWER TO SEARCH USERS*/}

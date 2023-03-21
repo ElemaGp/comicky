@@ -40,6 +40,24 @@
 
         }
 
+        > button{
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 6px;
+            cursor: pointer;
+            min-height: 2rem;
+            font-weight: 500;
+            background-color: red;
+            padding: 5px;
+            color: white;
+            border: none;
+
+            @media(max-width: 360px){
+                display: none;
+            }
+        }
+
         > p{
             font-weight: 600;
             font-size: 1.1rem;
