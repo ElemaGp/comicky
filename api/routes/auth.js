@@ -20,7 +20,7 @@ const transporter = nodemailer.createTransport(sendgridTransport({
 }))
 
 router.post('/signup',(req,res)=>{
-  const {name,email,password,pic} = req.body 
+  const {name,email,password} = req.body 
   if(!email || !password || !name){
      return res.status(422).json({error:"please add all the fields"})
   }
@@ -34,8 +34,7 @@ router.post('/signup',(req,res)=>{
             const user = new User({
                 email,
                 password:hashedpassword,
-                name,
-                pic
+                name
             })
     
             user.save()
@@ -46,7 +45,7 @@ router.post('/signup',(req,res)=>{
                 //     subject:"signup success",
                 //     html:"<h1>welcome to instagram</h1>"
                 // })
-                res.json({message:"saved successfully"})
+                // res.json({message:"saved successfully"})
             })
             .catch(err=>{
                 console.log(err)

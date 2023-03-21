@@ -30,12 +30,17 @@ const Signup = () => {
       const onSubmit = async (values, formikHelpers) => {  //alternatively, i can just destructure this "values" object to directly get the username, password and email.
         console.log('Form data', values)
     
-    //     try{
-    //       await axios.post("/auth/register", { email: values.email, username: values.username, password: values.password });
-    //       console.log("User saved!")
-    //   }catch(err){
-    //     console.log(`YOUR ERRRRROROOORRRR IS ${err}`)
-    //   }
+        fetch("/signup",{
+          method:"post",
+          headers:{
+              "Content-Type":"application/json"
+          },
+          body:JSON.stringify({
+              name: values.username,
+              password: values.password,
+              email: values.email,
+          }).then(console.log("signup successful"))
+      })
     
         formikHelpers.resetForm();
       }
