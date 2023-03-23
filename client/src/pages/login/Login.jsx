@@ -5,8 +5,6 @@ import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
 import FormikControl from "../../components/formikComponents/FormikControl"
 import { Box, Button, Typography } from "@mui/material"
-// import { useSelector, useDispatch } from 'react-redux'
-// import { login } from "../../components/reduxToolkit/features/userSlice"
 import usePasswordToggle from "../../usePasswordToggle"
 import { Stack } from "@mui/system"
 import { Link } from "react-router-dom"
@@ -14,10 +12,6 @@ import { login } from "../../authContext/apiCalls"
 
 
 function Login () {
-
-  //Redux-toolkit part (the dispatch of the "login" action creator is done in the "onSubmit" a few lines below)
-//   const user = useSelector(state => state.user) // "const user" is declared to be equal to the "user" in userSlice.jsx. Meaning it now contains the initial state object properties that the "user" has in useSlice.jsx, and the properties' values will be updated accordingly when the actions are dispatched. Btw, "const user = useSelector(state => state.user)" gives us the state of the entire "user" object in the user slice. If for instance, i just wanted to get the state of the the loading, then i would have done "const user = useSelector(state => state.user.loading)". "user" is what i named my userSlice in userSlice.jsx so it is the name of the user object. Any of the properties (in the "initial state" section) can now be accessed through it eg "state.user.loading", "state.user.websiteuser", "state.user.error".
-//   const dispatch = useDispatch()
 
 const {dispatch} = useContext(AuthContext);
 

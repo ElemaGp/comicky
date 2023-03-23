@@ -39,8 +39,8 @@ const Signup = () => {
               name: values.username,
               password: values.password,
               email: values.email,
-          }).then(console.log("signup successful"))
-      })
+          })
+      }).then(console.log("signup successful"))
     
         formikHelpers.resetForm();
       }
