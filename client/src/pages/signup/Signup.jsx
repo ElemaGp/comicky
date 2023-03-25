@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import style from "./signup.module.scss"
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
@@ -6,10 +6,15 @@ import FormikControl from "../../components/formikComponents/FormikControl"
 import { Button, Typography } from "@mui/material"
 // import axios from 'axios'
 import usePasswordToggle from "../../usePasswordToggle"
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Box } from '@mui/system'
+import { AuthContext } from '../../authContext/AuthContext'
+import { login } from '../../authContext/apiCalls'
 
 const Signup = () => {
+
+  // const {dispatch} = useContext(AuthContext);
+  const navigate = useNavigate();
 
     const initialValues = {
         username: '',
@@ -29,6 +34,7 @@ const Signup = () => {
     
       const onSubmit = async (values, formikHelpers) => {  //alternatively, i can just destructure this "values" object to directly get the username, password and email.
         console.log('Form data', values)
+        const {username, password, email} = values;
     
         fetch("/signup",{
           method:"post",
@@ -36,13 +42,19 @@ const Signup = () => {
               "Content-Type":"application/json"
           },
           body:JSON.stringify({
-              name: values.username,
-              password: values.password,
-              email: values.email,
+              name: username,
+              password: password,
+              email: email,
           })
       }).then(console.log("signup successful"))
-    
-        formikHelpers.resetForm();
+      navigate("/login",
+      {
+          state: {
+              registeredEmail:{email}, registeredPassword:{password}
+          }
+      });
+      // login({email, password}, dispatch);
+      formikHelpers.resetForm();
       }
     
       //password eye-toggle
