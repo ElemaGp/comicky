@@ -7,21 +7,22 @@ import FormikControl from "../../components/formikComponents/FormikControl"
 import { Box, Button, Typography } from "@mui/material"
 import usePasswordToggle from "../../usePasswordToggle"
 import { Stack } from "@mui/system"
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import { login } from "../../authContext/apiCalls"
 
 
 function Login () {
 
 const {dispatch} = useContext(AuthContext);
+const { state } = useLocation();
 
   //password eye-toggle
   const [passwordInputType, EyeIcon] = usePasswordToggle(); //bringing in the values of "const inputType" and "const icon" which i returned from the usePasswordToggle custom hook as "const passwordInputType" and "const EyeIcon".
 
   //formik part
   const initialValues = {
-    email: '',
-    password: ''
+    email: state ? state.registeredEmail.email : "",
+    password: state ? state.registeredPassword.password : ""
   }
 
   const validationSchema = Yup.object({
@@ -73,9 +74,9 @@ const {dispatch} = useContext(AuthContext);
               <div className={style.passwordEyeIcon}>{EyeIcon}</div>
             </div>
             
-            {/* <button type='submit' disabled={!formik.isValid} className={style.btn}>Sign Up</button> "formik.isValid is false whenever there is an error" */}
-            <Button type="submit" variant="contained" color="primary" size="large" disabled={!formik.dirty || !formik.isValid}>Login</Button>
-          
+            {/* <button type='submit' disabled={!formik.dirty || !formik.isValid} className={style.btn}>Sign Up</button> "formik.isValid is false whenever there is an error", "formik.dirty" is false if the value of that input field is still the same as it's initial state value*/}
+            <Button type="submit" variant="contained" color="primary" size="large" disabled={!formik.isValid}>Login</Button> 
+            {/* if you wish, you can also add "!formik.dirty" as another consition for the button above to be disabled. As in "disabled={!formik.dirty || !formik.isValid}" */}
            <Box>
              <Typography gutterBottom={true} sx={{marginTop: "18px"}}>Don't have an account?, <Link to="/signup" style={{textDecoration: "none"}}>sign up</Link></Typography>
              <Typography>Forgot password?, <Link to="/signup" style={{textDecoration: "none"}}>reset password</Link></Typography>
