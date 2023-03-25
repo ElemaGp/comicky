@@ -43,10 +43,13 @@ const Feed = () => {
                 <span className={style.commentName}>John Imeh</span>
                 <span>lol, this was me and my friends back then</span>
                 
-                <div className={style.deleteAndEditIcons}>
+                {
+                  item.postedBy._id === user.user._id &&
+                  <div className={style.deleteAndEditIcons}>
                   <p className={style.icon}><AiOutlineDelete /></p>
                   <p className={style.icon}><AiOutlineEdit /></p>
                 </div>
+                }
               </div>
             </div>
             )
