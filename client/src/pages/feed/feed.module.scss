@@ -66,6 +66,16 @@
                     cursor: pointer;
                 }
             }
+            > textarea{
+                width: 99%;
+                border-top: none;
+                border-left: none;
+                border-right: none;
+                resize: none;
+                margin-top: 12px;
+                outline: none;
+                overflow: hidden;
+            }
     }
   }
 }

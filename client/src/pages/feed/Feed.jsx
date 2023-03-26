@@ -1,8 +1,9 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState, useRef } from 'react'
 import Navbar from '../../components/navbar/Navbar'
 import style from "./feed.module.scss"
 import { AiOutlineDelete, AiOutlineEdit, AiOutlineLike } from 'react-icons/ai';
 import { AuthContext } from '../../authContext/AuthContext';
+import useAutosizeTextArea from "../../useAutosizeTextArea";
 
 const Feed = () => {
 
@@ -10,6 +11,16 @@ const Feed = () => {
   console.log(user);
 
   const [data, setData] = useState([]);
+
+  const [value, setValue] = useState("");
+  const textAreaRef = useRef(null);
+  useAutosizeTextArea(textAreaRef.current, value);
+
+  const handleChange = (event) => {
+    const val = event.target?.value;
+
+    setValue(val);
+  };
 
   useEffect(()=>{
     fetch('/allpost',{
@@ -22,6 +33,7 @@ const Feed = () => {
         setData(result.posts)
     })
  },[])
+
 
   return (
     <div className={style.feedContainer}>
@@ -43,10 +55,15 @@ const Feed = () => {
                 <span className={style.commentName}>John Imeh</span>
                 <span>lol, this was me and my friends back then</span>
                 
-                <div className={style.deleteAndEditIcons}>
+                {
+                  item.postedBy._id === user.user._id &&
+                  <div className={style.deleteAndEditIcons}>
                   <p className={style.icon}><AiOutlineDelete /></p>
                   <p className={style.icon}><AiOutlineEdit /></p>
                 </div>
+                }
+
+                <textarea name="comments" id="comments"   placeholder='add a comment...' onChange={handleChange} ref={textAreaRef} rows={1} value={value}/>
               </div>
             </div>
             )
