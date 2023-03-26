@@ -44,8 +44,17 @@ const Feed = () => {
             return(
             <div className={style.eachPost} key={item._id}>
               <div className={style.postTop}>
-                <img src={user.user.pic} className={style.profilePic} alt="profile pic" />
-                <h3>{item.postedBy.name}</h3>
+                <div className={style.postTopPicAndName}>
+                  <img src={item.postedBy.pic} className={style.profilePic} alt="profile pic" />
+                  <h3>{item.postedBy.name}</h3>
+                </div>
+                {
+                  item.postedBy._id === user.user._id &&
+                  <div className={style.postTopEditAndDeleteIcons}>
+                    <p className={style.postEditIcon}><AiOutlineEdit /></p>
+                    <p className={style.postDeleteIcon}><AiOutlineDelete /></p>
+                  </div>
+                }
               </div>
               <img src={item.photo} className={style.postImg} alt="post img"/>
               <p className={style.caption}>{item.caption}</p>
@@ -58,8 +67,8 @@ const Feed = () => {
                 {
                   item.postedBy._id === user.user._id &&
                   <div className={style.deleteAndEditIcons}>
-                  <p className={style.icon}><AiOutlineDelete /></p>
-                  <p className={style.icon}><AiOutlineEdit /></p>
+                  <p className={style.commentsIcon}><AiOutlineDelete /></p>
+                  <p className={style.commentsIcon}><AiOutlineEdit /></p>
                 </div>
                 }
 

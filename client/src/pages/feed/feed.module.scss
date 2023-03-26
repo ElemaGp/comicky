@@ -14,16 +14,41 @@
 
         .postTop{
             display: flex;
+            justify-content: space-between;
             padding: 8px 5px;
-            gap: 7px;
+            // gap: 7px;
 
-            .profilePic{
-                height: 19px;
-                width: 19px;
-                object-fit: cover;
-                border: solid 1px blue;
-                border-radius: 50%;
+            .postTopPicAndName{
+                display: flex;
+                gap: 10px;
+
+                .profilePic{
+                    height: 19px;
+                    width: 19px;
+                    object-fit: cover;
+                    border: solid 1px blue;
+                    border-radius: 50%;
+                }
+
+                >h3 {
+                    cursor: pointer;
+                }
             }
+
+        .postTopEditAndDeleteIcons{
+            display: flex;
+            gap: 30px;
+            margin-right: 1rem;
+            
+            .postEditIcon{
+                cursor: pointer;
+            }
+
+            .postDeleteIcon{
+                cursor: pointer;
+            }
+          }
+            
         }
 
         .postImg{
@@ -59,7 +84,7 @@
                 gap: 14px;
                 margin-top: 5px;
 
-                .icon{
+                .commentsIcon{
                     background-color: rgb(209, 209, 194);
                     padding: 6px;
                     border-radius: 50%;
