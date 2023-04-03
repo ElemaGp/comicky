@@ -7,10 +7,14 @@
     
     .eachPost{
         border: solid 1px black;
-        width: fit-content;
+        width: 26rem;
         align-self: center;
         margin-top: 10px;
         background-color: beige;
+
+        @media(max-width: 450px){
+            width: 99vw;
+        }
 
         .postTop{
             display: flex;
@@ -53,13 +57,11 @@
 
         .postImg{
             // height: 25rem;
-            width: 25rem;
+            width: inherit;
             // object-fit: contain;
-            border: solid 1px rgb(109, 106, 106);
+            // border: solid 1px rgb(109, 106, 106);
 
-            @include mobile {
-                width: 99%;
-                }
+            
         }
         .caption{
             margin: 6px 0;
@@ -70,6 +72,7 @@
             cursor: pointer;
         }
         .comments{
+            border: solid 1px red;
             margin: 8px 0;
 
             .commentName{

@@ -4,6 +4,7 @@ import style from "./feed.module.scss"
 import { AiOutlineDelete, AiOutlineEdit, AiOutlineLike } from 'react-icons/ai';
 import { AuthContext } from '../../authContext/AuthContext';
 import useAutosizeTextArea from "../../useAutosizeTextArea";
+import { Link } from 'react-router-dom';
 
 const Feed = () => {
 
@@ -12,6 +13,7 @@ const Feed = () => {
 
   const [data, setData] = useState([]);
 
+  //bringing in the reusable custom hook for making the textarea box increase based on text size
   const [value, setValue] = useState("");
   const textAreaRef = useRef(null);
   useAutosizeTextArea(textAreaRef.current, value);
@@ -46,7 +48,7 @@ const Feed = () => {
               <div className={style.postTop}>
                 <div className={style.postTopPicAndName}>
                   <img src={item.postedBy.pic} className={style.profilePic} alt="profile pic" />
-                  <h3>{item.postedBy.name}</h3>
+                  <Link to={item.postedBy._id !== user.user._id ? "/profile/"+item.postedBy._id : "/profile"  } ><h3>{item.postedBy.name}</h3></Link>
                 </div>
                 {
                   item.postedBy._id === user.user._id &&
