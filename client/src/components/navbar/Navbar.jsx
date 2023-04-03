@@ -6,6 +6,7 @@ import { Drawer, TextField } from '@mui/material';
 import { Stack } from '@mui/system';
 import { AuthContext } from '../../authContext/AuthContext';
 import { logout } from '../../authContext/AuthActions';
+import { Link } from 'react-router-dom';
 
 const Navbar = ({feedType}) => {
 
@@ -19,7 +20,7 @@ const Navbar = ({feedType}) => {
   return (
     <div className={style.navbarContainer}>
       <div className={style.navbarLeft}>
-        <p>Comicky</p>
+        <Link to="/" style={{textDecoration:"none", color:"black"}}><p>Comicky</p></Link>
       </div> 
       <div className={style.navbarRight}>
         <div className={style.inputWrapper}>

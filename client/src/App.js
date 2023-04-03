@@ -8,6 +8,7 @@ import TailoredFeed from './pages/tailoredFeed/TailoredFeed';
 import Create from './pages/create/Create';
 import { useContext } from 'react';
 import { AuthContext } from './authContext/AuthContext';
+import UserProfile from './pages/userProfile/UserProfile';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
             <Route path="login" element={user ? <Feed /> : <Login />} />
             <Route path="signup" element={user ? <Feed /> : <Signup />} />
             <Route path="profile" element={user ? <Profile /> : <Login />} />
+            <Route path="profile/:userid" element={user ? <UserProfile /> : <Login />} />
             <Route path="tailoredfeed" element={user ? <TailoredFeed /> : <Login />} />
             <Route path="create" element={user ? <Create /> : <Login />} />
           </Route>
